@@ -1,4 +1,4 @@
-package languageExchange.domain.web.user;
+package languageExchange.web.user;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
