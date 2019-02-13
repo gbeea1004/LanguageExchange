@@ -4,6 +4,7 @@ import languageExchange.domain.User;
 import languageExchange.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +22,10 @@ public class UserController {
     }
 
     @PostMapping("")
-    public String create(User user) {
+    public String create(User user, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "redirect:/users/form";
+        }
         userService.add(user);
         return "redirect:/users/login";
     }
