@@ -24,6 +24,7 @@ public class UserController {
     @PostMapping("")
     public String create(User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
+            System.out.println("bindingResult 발생");
             return "redirect:/users/form";
         }
         userService.add(user);
