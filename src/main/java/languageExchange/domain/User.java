@@ -80,4 +80,21 @@ public class User {
     public void setNativeLanguage(String nativeLanguage) {
         this.nativeLanguage = nativeLanguage;
     }
+
+    public boolean checkPassword(String password) {
+        return this.password.equals(password);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userId='" + userId + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", practiceLanguage='" + practiceLanguage + '\'' +
+                ", nativeLanguage='" + nativeLanguage + '\'' +
+                '}';
+    }
 }

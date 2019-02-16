@@ -1,6 +1,7 @@
 package languageExchange.web.user;
 
 import languageExchange.domain.User;
+import languageExchange.security.HttpSessionUtils;
 import languageExchange.service.UserService;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
+
+import static languageExchange.security.HttpSessionUtils.LOGINED_USER;
 import static org.slf4j.LoggerFactory.getLogger;
 
 @Controller
@@ -36,7 +40,19 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String login() {
+    public String loginForm() {
         return "user/login";
+    }
+
+    @PostMapping("/login")
+    public String login(String userId, String password, HttpSession httpSession) {
+        User user = userService.login(userId, password);
+        httpSession.setAttribute(LOGINED_USER, user);
+        return "redirect:/";
+    }
+    @GetMapping("/logout")
+    public String logout(HttpSession httpSession){
+        httpSession.removeAttribute(LOGINED_USER);
+        return "redirect:/";
     }
 }
