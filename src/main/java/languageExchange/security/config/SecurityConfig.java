@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.antMatcher("/**")
                 .authorizeRequests()
-                .antMatchers("/", "/users/form", "/users/login**", "/users/logout", "/h2-console/**", "/favicon.ico", "/js/main.js", "/js/jquery-2.2.0.min.js", "/css/styles.css", "/css/tinymce.css").permitAll()
+                .antMatchers("/", "/users/**", "/h2-console/**", "/favicon.ico", "/js/**", "/css/**").permitAll()
                 .anyRequest().authenticated()
                 .and().logout().logoutSuccessUrl("/").permitAll()
                 .and().headers().frameOptions().sameOrigin()
