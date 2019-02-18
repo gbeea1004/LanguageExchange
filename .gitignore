@@ -24,3 +24,6 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+### 인증정보 제외 ###
+/src/main/resources/google.yml
