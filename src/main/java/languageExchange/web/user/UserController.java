@@ -47,7 +47,9 @@ public class UserController {
     @PostMapping("/login")
     public String login(String userId, String password, HttpSession httpSession) {
         User user = userService.login(userId, password);
+        log.debug("로그인 유저 : " + user);
         httpSession.setAttribute(LOGINED_USER, user);
+        log.debug("세션 저장 완료 : " + httpSession.getAttribute(LOGINED_USER));
         return "redirect:/";
     }
     @GetMapping("/logout")

@@ -33,7 +33,7 @@ public class GoogleAuthenticationSuccessHandler implements AuthenticationSuccess
         log.debug("로그인 성공");
         log.debug("구글 authentication : " + authentication);
         httpSession.setAttribute(HttpSessionUtils.LOGINED_USER, getGoogleUser(authentication)); // 간단한 구글계정 정보를 세션에 저장
-        response.sendRedirect("/me");
+        response.sendRedirect("/"); // localhost:8080/me 에서 정보 확인 가능
     }
 
     private GoogleUser getGoogleUser(Authentication authentication) { // OAuth 인증정보를 통해 GoogleUser 인스턴스 생성
