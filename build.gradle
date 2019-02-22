@@ -30,6 +30,8 @@ dependencies {
 	compile('pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.1')
 	compile('org.springframework.security.oauth:spring-security-oauth2:2.3.4.RELEASE')
 	compile ('org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.1.2.RELEASE')
+	compile('org.springframework.boot:spring-boot-starter-jdbc:2.1.0.RELEASE')
+	compile('org.springframework.session:spring-session-jdbc:2.0.0.RELEASE')
 	runtime('com.h2database:h2')
 	runtime('net.rakugakibox.spring.boot:logback-access-spring-boot-starter:2.7.1')
 	runtime('mysql:mysql-connector-java')
